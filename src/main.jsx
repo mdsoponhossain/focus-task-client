@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     element:<Completed></Completed>
   },
   {
-    path:'overview',
+    path:'/dashboard',
     element:<OverView></OverView>
   }
 ]

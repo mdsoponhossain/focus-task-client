@@ -3,10 +3,11 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
     const navItems = <>
-        <li><NavLink to='/dashboard/overview'>Dashboard Overview</NavLink></li>
+        <li><NavLink to='/dashboard'>Dashboard Overview</NavLink></li>
         <li><NavLink to='/dashboard/to-dos'>To-Dos</NavLink></li>
         <li><NavLink to='/dashboard/on-going'>On Going</NavLink></li>
         <li><NavLink to='/dashboard/completed'>Completed</NavLink></li>
+        <li><NavLink to='/'>Home</NavLink></li>
 
     </>
     return (
