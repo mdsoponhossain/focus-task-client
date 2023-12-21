@@ -1,0 +1,27 @@
+[
+    {
+      "image": "https://i.ibb.co/Hz3v4CZ/user-1.jpg",
+      "title": "Developers",
+      "word": "Coding",
+      "description": "Empower your development team with our task management tools. Streamline collaboration, track progress, and turn coding passion into efficient project delivery."
+    },
+    {
+      "image": "https://i.ibb.co/pf949xd/user-2.jpg",
+      "title": "Corporate",
+      "word": "Leadership",
+      "description": "Elevate corporate leadership with our task management solutions. Foster strategic thinking, drive growth, and achieve organizational excellence with effective project management."
+    },
+    {
+      "image": "https://i.ibb.co/tDYVfYW/user-3.png",
+      "title": "Bankers",
+      "word": "Finance",
+      "description": "Optimize financial strategies with our task management platform. Bankers can efficiently manage resources, ensure financial stability, and drive success in a dynamic market."
+    },
+    {
+      "image": "https://i.ibb.co/rZRwdrD/user-4.jpg",
+      "title": "Professionals",
+      "word": "Expertise",
+      "description": "Unleash professional expertise with our task management website. Excel in your field, deliver high-quality services, and efficiently manage tasks to meet client expectations."
+    }
+  ]
+  
