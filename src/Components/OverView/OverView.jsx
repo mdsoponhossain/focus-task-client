@@ -2,9 +2,13 @@ import { MdOutlineAssignmentTurnedIn, MdOutlineWifiProtectedSetup, MdLibraryBook
 import BartChart from "../BarChart/BartChart";
 import Piechart from "../PieChart/Piechart";
 import moment from "moment/moment";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const OverView = () => {
     const date = moment().format('MMMM Do YYYY');
+    const {user} = useContext(AuthContext)
+    console.log(user)
 
     return (
         <div className="bg-indigo-50">
@@ -14,7 +18,7 @@ const OverView = () => {
                     <span className="ml-3">{date}</span>
                 </div>
                 <p>+ Create</p>
-                <p>person</p>
+                <p className="w-12 h-12 rounded-3xl border-4"><img src={user?.photoURL} alt="" /></p>
             </div>
             <div className="grid grid-cols-3 gap-3 text-2xl text-center font-bold text-blue-600 uppercase">
 
