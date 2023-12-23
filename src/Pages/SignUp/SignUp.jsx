@@ -15,9 +15,8 @@ const SignUp = () => {
     const { handleSignUp, handleUpdateUser } = useContext(AuthContext)
 
     const img_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
-    const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
+    const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}` 
     console.log(img_hosting_key);
-
 
     const handleFormSubmit = async (data) => {
         console.log(data);
@@ -34,17 +33,24 @@ const SignUp = () => {
             displayName: data.name,
             photoURL: res.data.data.url
         }
+
+        const user ={
+            email
+        }
         if (res.data.success) {
             handleSignUp(email, password)
                 .then(result => {
                     console.log(result.user);
                     handleUpdateUser(userInfo)
-                    .then(result=>{
-                        console.log(result)
-                    })
-                    .catch(error=>{
-                        console.log(error)
-                    })
+                        .then(async () => {
+
+                            const res = await axiosPublic.post('/user', user)
+                            console.log(res)
+
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
                 })
                 .catch(error => {
                     console.log(error.message)

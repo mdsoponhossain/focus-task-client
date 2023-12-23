@@ -1,11 +1,16 @@
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend } from 'recharts';
 
-const Piechart = () => {
+const Piechart = ({ pieChartData }) => {
+    console.log(pieChartData)
+    const v1 = pieChartData.todos;
+    const v2 = pieChartData.ongoing;
+    const v3 = pieChartData.completed;
+    const v4 = pieChartData.deleted;
     const data = [
-        { name: 'Group A', value: 400 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
+        { name: 'Todos', value: v1 },
+        { name: 'OnGoing', value: v2 },
+        { name: 'Completed', value: v3 },
+        { name: 'Deleted', value: v4 },
     ];
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -23,8 +28,9 @@ const Piechart = () => {
         );
     };
     return (
-     
-            <PieChart className='border-4' width={400} height={400}>
+
+        <div className='w-[250px] h-[250px] border-4'>
+            <PieChart width={400} height={400}>
                 <Pie
                     data={data}
                     cx="50%"
@@ -41,7 +47,8 @@ const Piechart = () => {
                 </Pie>
                 <Legend></Legend>
             </PieChart>
-        
+        </div>
+
     );
 };
 

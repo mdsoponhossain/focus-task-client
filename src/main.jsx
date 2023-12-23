@@ -17,6 +17,10 @@ import Completed from './Components/Completed/Completed';
 import OverView from './Components/OverView/OverView';
 import AuthProvider from './AuthProvider/AuthProvider';
 import PrivateRoutes from './PrivateRoutes/PrivateRoutes';
+import Form from './Components/Form/Form';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import UpdateTask from './Components/UpdateTask/UpdateTask';
+
 
 const router = createBrowserRouter([
   {
@@ -53,17 +57,29 @@ const router = createBrowserRouter([
       element: <PrivateRoutes><Completed></Completed></PrivateRoutes>
     },
     {
-      path: '/dashboard',
+      path: 'overview',
       element: <PrivateRoutes><OverView></OverView></PrivateRoutes>
+    },
+    {
+      path:'add-task',
+      element:<PrivateRoutes><Form></Form></PrivateRoutes>
+    },
+    {
+      path:'update-task/:id',
+      element:<UpdateTask></UpdateTask>,
+      loader:({params})=>fetch(`http://localhost:5000/update-task/${params.id}`)
     }
     ]
   }
 ]);
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <QueryClientProvider client={queryClient}>
   <AuthProvider>
     <React.StrictMode>
       <RouterProvider router={router} />
     </React.StrictMode>,
   </AuthProvider>
+  </QueryClientProvider>
 )

@@ -1,10 +1,12 @@
-import { useContext } from "react";
-import { useForm } from "react-hook-form"
-import { AuthContext } from "../../AuthProvider/AuthProvider";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
-const Form = () => {
-    const {user} = useContext(AuthContext);
+import { useForm } from "react-hook-form"
+import { useLoaderData, useParams } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useState } from "react";
+const UpdateTask = () => {
+    const data = useLoaderData();
+   const id = data._id ;
+   console.log(id)
     const axiosPublic = useAxiosPublic();
     const {
         register,
@@ -14,12 +16,12 @@ const Form = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        data.user = user?.email ;
-        data.status = "to-dos";
         console.log(data);
-        const res = await axiosPublic.post('/add-task',data)
-        console.log(res)
-    }
+        console.log(id);
+        axiosPublic.patch(`update-task/${id}`,data)
+        .then(res=>{res.data})
+    };
+
 
     return (
         <div>
@@ -30,13 +32,13 @@ const Form = () => {
                         <label className="label">
                             <span className="label-text">Deadline</span>
                         </label>
-                        <input type="date" {...register("date")} className="input input-bordered" required />
+                        <input type="date" defaultValue={data.date} {...register("date")} className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Priority</span>
                         </label>
-                        <select {...register("priority")}>
+                        <select  {...register("priority")}>
                             <option value="low">low</option>
                             <option value="moderate">moderate</option>
                             <option value="high">high</option>
@@ -47,13 +49,13 @@ const Form = () => {
                     <label className="label">
                         <span className="label-text">Title</span>
                     </label>
-                    <input type="text" {...register("title")} placeholder="Title" className="input input-bordered" required />
+                    <input type="text" defaultValue={data.title} {...register("title")} placeholder="Title" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Description</span>
                     </label>
-                    <textarea  {...register("description", { required: true })} placeholder="Write  Description" className="textarea textarea-bordered textarea-md w-full " ></textarea>
+                    <textarea defaultValue={data.description}  {...register("description", { required: true })} placeholder="Write  Description" className="textarea textarea-bordered textarea-md w-full " ></textarea>
                 </div>
 
                 <div className="form-control mt-6">
@@ -64,4 +66,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default UpdateTask;

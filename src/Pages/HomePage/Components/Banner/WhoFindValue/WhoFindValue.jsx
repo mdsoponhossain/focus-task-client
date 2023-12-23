@@ -5,7 +5,7 @@ import User from "../../User/User";
 const WhoFindValue = () => {
     const [users, setUsers] = useState([ ])
     useEffect(()=>{
-        fetch('/public/user.json')
+        fetch('./user.json')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);

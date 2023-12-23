@@ -1,56 +1,27 @@
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Sector, Cell, } from 'recharts';
 
-const BartChart = () => {
+const BartChart = ({pieChartData}) => {
+    console.log(pieChartData)
+    const v1 = pieChartData.todos;
+    const v2 = pieChartData.ongoing;
+    const v3 = pieChartData.completed;
+    const v4 = pieChartData.deleted;
     const data = [
         {
             name: 'Page A',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
-        },
-        {
-            name: 'Page B',
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
-        },
-        {
-            name: 'Page C',
-            uv: 2000,
-            pv: 9800,
-            amt: 2290,
-        },
-        {
-            name: 'Page D',
-            uv: 2780,
-            pv: 3908,
-            amt: 2000,
-        },
-        {
-            name: 'Page E',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
-        },
-        {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: 'Page G',
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
-        },
+            todos: v1,
+            ongoing: v2,
+            completed: v3,
+            deleted: v4,
+            amt: 240,
+        }
     ];
 
     return (
         <div>
             <BarChart
-                width={500}
-                height={300}
+                width={400}
+                height={250}
                 data={data}
                 margin={{
                     top: 5,
@@ -61,11 +32,13 @@ const BartChart = () => {
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
-                <YAxis />
+                {/* <YAxis /> */}
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-                <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+                <Bar dataKey="todos" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="purple" />} />
+                <Bar dataKey="ongoing" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+                <Bar dataKey="completed" fill="#FFBB28" activeBar={<Rectangle fill="yellow" stroke="yellow" />} />
+                <Bar dataKey="deleted" fill="#00C49F" activeBar={<Rectangle fill="green" stroke="green" />} />
             </BarChart>
         </div>
     );
