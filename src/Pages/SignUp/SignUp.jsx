@@ -70,18 +70,18 @@ const SignUp = () => {
         }
     }
     return (
-        <div className="hero min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-            <div className="hero-content w-full md:w-[500px] ">
-                <div className="card shrink-0 w-full shadow-2xl bg-base-100">
-                    <h1 className="text-5xl font-bold text-center mt-10 font-serif ">Sign Up</h1>
-                    <div className='text-center mt-12 mx-auto'>
+        <div className="hero min-h-screen mb-4 md:mb-0   md:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+            <div className="md:hero-content w-full md:w-[500px] ">
+                <div className="md:card p-0 shrink-0 w-full md:shadow-2xl bg-base-100">
+                    <h1 className="text-5xl font-bold text-center mt-10 font-serif pt-4 md:pt-0 ">Sign Up</h1>
+                    <div className='text-center grid justify-center mt-12 mx-auto'>
 
                         <SocialLogin ></SocialLogin>
                     </div>
                     <h1 className="text-center text-3xl mt-5 font-serif">Or</h1>
 
                     <form onSubmit={handleSubmit(handleFormSubmit)} className="card-body pt-0">
-                        <div className="flex gap-3">
+                        <div className="md:flex gap-3">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

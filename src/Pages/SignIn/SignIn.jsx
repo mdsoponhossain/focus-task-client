@@ -38,11 +38,11 @@ const SignIn = () => {
             })
     }
     return (
-        <div className="hero min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-            <div className="hero-content w-full md:w-[450px] ">
-                <div className="card shrink-0 w-full shadow-2xl bg-base-100">
-                    <h1 className="text-5xl font-bold text-center mt-10 font-serif ">Sign In</h1>
-                    <div className='text-center mt-12 mx-auto'>
+        <div className="hero min-h-screen mb-5 md:mb-0 md:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+            <div className="md:hero-content w-full md:w-[450px] ">
+                <div className="md:card shrink-0 w-full md:shadow-2xl bg-base-100">
+                    <h1 className="text-5xl font-bold text-center mt-10 font-serif pt-5  ">Sign In</h1>
+                    <div className='text-center  grid justify-center mt-12 mx-auto'>
 
                         <SocialLogin ></SocialLogin>
                     </div>

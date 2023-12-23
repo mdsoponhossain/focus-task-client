@@ -15,7 +15,7 @@ const Dashboard = () => {
     return (
         <div className="max-w-7xl mx-auto bg-blue-100 h-fit">
             <div className="md:flex h-fit  gap-1">
-                <div className="md:w-1/5 w-full bg-slate-50 hidden lg:flex  ">
+                <div className="md:w-1/5 w-full bg-slate-50 hidden md:flex  ">
                     <ul className="menu">
                         {navItems}
                     </ul>

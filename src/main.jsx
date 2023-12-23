@@ -67,7 +67,7 @@ const router = createBrowserRouter([
     {
       path:'update-task/:id',
       element:<UpdateTask></UpdateTask>,
-      loader:({params})=>fetch(`https://focus-task-server.vercel.app/${params.id}`)
+      loader:({params})=>fetch(`https://focus-task-server.vercel.app/update-task/${params.id}`)
     }
     ]
   }

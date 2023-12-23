@@ -1,8 +1,12 @@
-# React + Vite
+# Project live link: https://focus-task-35682.web.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a task management website.Using the this web application, the users can manage their task easily.
 
-Currently, two official plugins are available:
+## Feature
+- users can login and sign up.
+- users can create task and delete.
+- They able to change the role like todos, ongoing and complete.
+- After login or sign up, user can view the dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
+#Firebase #React #JavaScript #React-hook-form # react-router

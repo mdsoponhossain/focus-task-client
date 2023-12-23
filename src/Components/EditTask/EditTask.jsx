@@ -28,7 +28,7 @@ const EditTask = () => {
         }
     });
 
-    const task = allTask?.filter(a=>a.status !== 'deleted')
+    const task = allTask?.filter(a => a.status !== 'deleted')
     console.log(task)
 
     const playStatusRole = (id) => {
@@ -119,7 +119,7 @@ const EditTask = () => {
                     {
                         task.map((singleTask, index) => <tr key={index}>
                             <th>{index + 1}</th>
-                            <td>{singleTask?.title?.length < 15 && singleTask.title.slice(0, 15)}</td>
+                            <td>{singleTask?.title?.length > 15 ? <span>{singleTask.title.slice(0, 15)}</span> : <span>{singleTask?.title}</span>}</td>
                             <td>{singleTask.status}</td>
                             <td>
                                 <select onChange={playRole} name="role" id="role">

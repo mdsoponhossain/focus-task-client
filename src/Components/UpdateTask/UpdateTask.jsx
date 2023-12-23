@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const UpdateTask = () => {
     const data = useLoaderData();
    const id = data._id ;
-   console.log(id)
+   console.log(data)
     const axiosPublic = useAxiosPublic();
     const {
         register,

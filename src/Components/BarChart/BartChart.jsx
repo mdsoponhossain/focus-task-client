@@ -20,7 +20,7 @@ const BartChart = ({pieChartData}) => {
     return (
         <div>
             <BarChart
-                width={400}
+                width={350}
                 height={250}
                 data={data}
                 margin={{

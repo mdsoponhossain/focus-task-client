@@ -45,7 +45,7 @@ const BestPlan = () => {
                     </div>
                 </div>
 
-                <div className=" md:rounded-xl h-[400px] bg-white text-black p-3 w-full  md:-mt-[400px] lg:ml-[500px] sticky md:w-[300px] flex-grow    mt-7">
+                <div className=" md:rounded-xl h-[400px] bg-white text-black p-3 w-full  md:-mt-[400px] md:ml-[250px] lg:ml-[500px] sticky md:w-[300px] flex-grow    mt-7">
                     <h1 className="text-center text-2xl mb-6  font-bold font-serif">Team Plan</h1>
                     <p>Fits for company to support projects and collaborator feature</p>
                     <h1 className="text-md font-bold my-3">$30/Month</h1>

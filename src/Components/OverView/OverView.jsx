@@ -56,7 +56,7 @@ const OverView = () => {
 
                 <Link to='/dashboard/all-task'><p className="w-fit  gap-2 flex"><span className="text-2xl font-bold text-blue-700"><FaEye></FaEye></span><span> View All</span></p></Link>
             </div>
-            <div className="grid md:grid-cols-4 gap-3 text-sm md:text-2xl text-center font-bold text-blue-600 uppercase">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm md:text-2xl text-center font-bold text-blue-600 uppercase">
 
                 <div className="md:w-[200px] bg-slate-50 md:rounded-lg w-full h-[200px] p-6 ">
                     <span className="grid justify-center">
