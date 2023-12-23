@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { useLoaderData, useParams } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useState } from "react";
+import Swal from "sweetalert2";
 const UpdateTask = () => {
     const data = useLoaderData();
    const id = data._id ;
@@ -19,7 +20,18 @@ const UpdateTask = () => {
         console.log(data);
         console.log(id);
         axiosPublic.patch(`update-task/${id}`,data)
-        .then(res=>{res.data})
+        .then(res=>{
+            console.log(res.data);
+            if(res.data.modifiedCount > 0){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Task successfully updated",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
     };
 
 

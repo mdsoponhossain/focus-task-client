@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 
@@ -20,8 +20,8 @@ const Navbar = () => {
     {
       user ? <>
 
-        <li><NavLink to='/blogs'>Blogs</NavLink></li>
-        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+        
+        <li><NavLink to='/dashboard/overview'>Dashboard</NavLink></li>
       </> :
 
         <> <li><NavLink to='/sign-up'>SignUp</NavLink></li>
@@ -55,8 +55,10 @@ const Navbar = () => {
           user && <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn m-1"><img className="w-12 h-12 rounded-3xl" src={user?.photoURL} alt="" /> </div>
             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-              <li><button onClick={logOutHandle}>LogOut</button></li>
-              <li><a>Item 2</a></li>
+            <li>{user && user.displayName}</li>
+            <li><Link to='/dashboard/overview'>Dashboard</Link></li>
+            <li><button onClick={logOutHandle}>LogOut</button></li>
+              
             </ul>
           </div> 
         }

@@ -1,32 +1,41 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/Shared/SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const SignIn = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const {handleSignIn} =useContext(AuthContext)
+    const { handleSignIn } = useContext(AuthContext)
     //  navigate(location?.state ? location.state : '/')
-    const {} = useContext(AuthContext)
+    console.log(location)
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const handleFormSubmit =(data)=>{
+    const handleFormSubmit = (data) => {
         console.log(data);
-        handleSignIn(data?.email,data?.password)
-        .then(result=>{
-            console.log(result.user);
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(error=>{
-            console.log(error.message)
-        })
+        handleSignIn(data?.email, data?.password)
+            .then(result => {
+                console.log(result.user);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your login successfully done",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
     return (
         <div className="hero min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
@@ -45,13 +54,13 @@ const SignIn = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" {...register("email",{required:true})} placeholder="Enter Your Email" className="input input-bordered" required />
+                            <input type="email" {...register("email", { required: true })} placeholder="Enter Your Email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" {...register("password",{required:true})} placeholder="password" className="input input-bordered" required />
+                            <input type="password" {...register("password", { required: true })} placeholder="password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -60,6 +69,7 @@ const SignIn = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-secondary">Login</button>
                         </div>
+                        <span>New here ? Please <Link className="text-xl font-bold ml-2 underline" to='/sign-up'>Sign Up</Link></span>
                     </form>
 
                 </div>

@@ -29,7 +29,7 @@ const Piechart = ({ pieChartData }) => {
     };
     return (
 
-        <div className='w-[250px] h-[250px] border-4'>
+        <div className='w-[250px] h-[250px] '>
             <PieChart width={400} height={400}>
                 <Pie
                     data={data}

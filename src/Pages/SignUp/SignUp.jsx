@@ -3,9 +3,13 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -46,6 +50,14 @@ const SignUp = () => {
 
                             const res = await axiosPublic.post('/user', user)
                             console.log(res)
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Your login successfully done",
+                                showConfirmButton: false,
+                                timer: 1500
+                              });
+                            navigate(location?.state ? location.state : '/');
 
                         })
                         .catch(error => {
@@ -61,7 +73,7 @@ const SignUp = () => {
         <div className="hero min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
             <div className="hero-content w-full md:w-[500px] ">
                 <div className="card shrink-0 w-full shadow-2xl bg-base-100">
-                    <h1 className="text-5xl font-bold text-center mt-10 font-serif ">Signup</h1>
+                    <h1 className="text-5xl font-bold text-center mt-10 font-serif ">Sign Up</h1>
                     <div className='text-center mt-12 mx-auto'>
 
                         <SocialLogin ></SocialLogin>
@@ -102,6 +114,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-secondary">Sign Up</button>
                         </div>
+                        <span>Have an account? Please <Link className="text-xl font-bold ml-2 underline" to='/sign-in'>Sign In</Link></span>
                     </form>
 
                 </div>

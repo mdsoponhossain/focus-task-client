@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const Form = () => {
     const {user} = useContext(AuthContext);
@@ -19,6 +20,15 @@ const Form = () => {
         console.log(data);
         const res = await axiosPublic.post('/add-task',data)
         console.log(res)
+        if(res.data.insertedId){
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your task has been created",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
     }
 
     return (

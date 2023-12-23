@@ -7,16 +7,15 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext)
     const navItems = <>
         <li><NavLink to='/dashboard/overview'>Dashboard Overview</NavLink></li>
-        <li><NavLink to='/dashboard/to-dos'>To-Dos</NavLink></li>
-        <li><NavLink to='/dashboard/on-going'>On Going</NavLink></li>
-        <li><NavLink to='/dashboard/completed'>Completed</NavLink></li>
+        <li><NavLink to='/dashboard/all-task'>All Task</NavLink></li>
+        <li><NavLink to='/dashboard/edit-task'>Edit Task</NavLink></li>
         <li><NavLink to='/'>Home</NavLink></li>
 
     </>
     return (
-        <div className="max-w-7xl mx-auto">
-            <div className="md:flex h-[900px] border-4 gap-1">
-                <div className="md:w-1/5 w-full hidden lg:flex  border-4">
+        <div className="max-w-7xl mx-auto bg-blue-100 h-fit">
+            <div className="md:flex h-fit  gap-1">
+                <div className="md:w-1/5 w-full bg-slate-50 hidden lg:flex  ">
                     <ul className="menu">
                         {navItems}
                     </ul>
@@ -34,14 +33,14 @@ const Dashboard = () => {
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl inline md:hidden">FocusTask.com</a>
-                    <div className="grid justify-end w-[40%] border-4 mx-auto">
+                    <div className="grid justify-end w-[40%]  mx-auto">
                         {
                             user && <img className="w-12 h-12 block  rounded-3xl" src={user?.photoURL} alt="" />
                         }
                     </div>
                 </div>
 
-                <div className="md:w-4/5 w-full border-4 p-3">
+                <div className="md:w-4/5 w-full  p-3">
                     <Outlet></Outlet>
                 </div>
             </div>

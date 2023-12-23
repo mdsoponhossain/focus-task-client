@@ -11,15 +11,15 @@ import ErrorPage from './Components/ErrorPage/ErrorPage';
 import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import ToDos from './Components/ToDos/ToDos';
-import OnGoing from './Components/OnGoing/OnGoing';
-import Completed from './Components/Completed/Completed';
 import OverView from './Components/OverView/OverView';
 import AuthProvider from './AuthProvider/AuthProvider';
 import PrivateRoutes from './PrivateRoutes/PrivateRoutes';
 import Form from './Components/Form/Form';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import UpdateTask from './Components/UpdateTask/UpdateTask';
+import AllTask from './Components/AllTask/AllTask';
+import EditTask from './Components/EditTask/EditTask';
+import AboutUs from './Pages/HomePage/Components/AboutUs/AboutUs';
 
 
 const router = createBrowserRouter([
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
     children: [{
       path: '/',
       element: <HomePage></HomePage>
+    },
+    {
+      path:'/about-us',
+      element:<AboutUs></AboutUs>
     },
     {
       path: '/sign-up',
@@ -45,16 +49,12 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <Dashboard></Dashboard>,
     children: [{
-      path: 'to-dos',
-      element: <PrivateRoutes><ToDos></ToDos></PrivateRoutes>
+      path: 'all-task',
+      element: <PrivateRoutes><AllTask></AllTask></PrivateRoutes>
     },
     {
-      path: 'on-going',
-      element: <PrivateRoutes><OnGoing></OnGoing></PrivateRoutes>
-    },
-    {
-      path: 'completed',
-      element: <PrivateRoutes><Completed></Completed></PrivateRoutes>
+      path: 'edit-task',
+      element: <PrivateRoutes><EditTask></EditTask></PrivateRoutes>
     },
     {
       path: 'overview',
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
     {
       path:'update-task/:id',
       element:<UpdateTask></UpdateTask>,
-      loader:({params})=>fetch(`http://localhost:5000/update-task/${params.id}`)
+      loader:({params})=>fetch(`https://focus-task-server.vercel.app/${params.id}`)
     }
     ]
   }
