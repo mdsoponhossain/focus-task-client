@@ -10,7 +10,7 @@ const Banner = () => {
         AOS.init();
     }, []);
     return (
-        <div data-aos="flip-right" className="hero h-[600px]" style={{ backgroundImage: 'url(https://i.ibb.co/tPQnDrX/banner-1091427.jpg)' }}>
+        <div data-aos="zoom-in" className="hero h-[600px]" style={{ backgroundImage: 'url(https://i.ibb.co/tPQnDrX/banner-1091427.jpg)' }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">

@@ -10,7 +10,7 @@ const BestPlan = () => {
     }, [])
 
     return (
-        <div data-aos="flip-up" className=" py-12 from-indigo-500  via-purple-500 to-pink-500 ">
+        <div data-aos="fade-up" className=" py-12 from-indigo-500  via-purple-500 to-pink-500 ">
             <div className="bg-gradient-to-r w-full pb-20 ">
                 <h1 className="text-center text-white pt-20 mb-14 text-4xl font-bold font-serif">Pick Your Best Plan</h1>
                 <div className="  md:flex justify-between h-fit md:h-[360px]  md:w-[800px] mx-auto">

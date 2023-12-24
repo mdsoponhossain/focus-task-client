@@ -20,7 +20,7 @@ const WhoFindValue = () => {
             })
     }, [])
     return (
-        <div data-aos="flip-left" className="my-48">
+        <div data-aos="zoom-in" className="my-48">
             <h1 className="mb-32 text-4xl font-serif font-bold text-center">Who Finds Value Here?</h1>
             <div className="grid md:grid-cols-2 lg:grid-col-3 lg:gap-3 mt-8 mx-auto lg:w-1/2">
                 {
